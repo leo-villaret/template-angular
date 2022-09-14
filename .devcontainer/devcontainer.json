@@ -1,0 +1,25 @@
+{
+  "name": "Angular",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "angular",
+  "workspaceFolder": "/workspace",
+  "extensions": [
+    "usernamehw.errorlens", // Display errors next to code
+    "Angular.ng-template", // Angular Language Service
+    "esbenp.prettier-vscode", // Code formatter for JS, TS, CSS, HTML, ...
+    "johnpapa.Angular2", // Angular code snippets
+    "christian-kohler.path-intellisense", // Autocomplete paths
+    "ms-vscode.js-debug" // Debug using chrome
+  ],
+  "forwardPorts": [4200],
+  "portsAttributes": {
+    "4200": {
+      "label": "Angular",
+      "onAutoForward": "silent"
+    }
+  },
+  "remoteUser": "node",
+  "postCreateCommand": "bash .devcontainer/install.sh",
+  "postStartCommand": "npm install",
+  "shutdownAction": "stopCompose"
+}

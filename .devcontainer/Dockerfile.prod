@@ -1,0 +1,12 @@
+FROM node:16.10-bullseye-slim as build
+WORKDIR /workspace
+COPY ../ /workspace
+RUN npm install
+RUN npm run build
+
+FROM nginx:1.23.1
+COPY --from=build /workspace/dist/...YOUR ANGULAR PROJECT NAME HERE... /usr/share/nginx/html
+EXPOSE 80
+
+# It is meant to be a starting point to deploy behind a reverse-proxy with only basic Angular features
+# Add a docker-compose.yml with some labels to deploy this image behind traefik
