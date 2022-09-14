@@ -9,7 +9,3 @@ services:
       - ..:/workspace:cached # Your code
       - ~/.ssh:/home/node/.ssh:cached # Your SSH keys if you use a custom git+ssh repo
     command: /bin/sh -c "while sleep 1000; do :; done" # Keep container running on start to let some time to VSCode to open a shell inside before it closes
-    deploy:
-      restart_policy:
-        condition: on-failure
-        max_attempts: 3
